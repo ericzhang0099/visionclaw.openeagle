@@ -11,11 +11,6 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from api.audio import router as audio_router
-from api.agents import router as agents_router
-from api.chat import router as chat_router
-from api.vision import router as vision_router
-from api.sessions import router as sessions_router
-from api.health import router as health_router
 from core.middleware import RequestIDMiddleware, SimpleRateLimitMiddleware
 from core.metrics import metrics_collector
 
@@ -37,9 +32,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
 
 
 app = FastAPI(
-    title="VisionClaw API",
-    description="VisionClaw - 视觉智能体后端服务",
-    version="1.0.0",
+    title="VisionClaw Audio Service",
+    version="0.1.0",
     lifespan=lifespan,
 )
 
@@ -59,12 +53,7 @@ app.add_middleware(RequestIDMiddleware)
 app.add_middleware(SimpleRateLimitMiddleware, requests_per_minute=60)
 
 # 注册路由
-app.include_router(health_router)
 app.include_router(audio_router, prefix="/api/v1")
-app.include_router(agents_router, prefix="/api/v1")
-app.include_router(chat_router, prefix="/api/v1")
-app.include_router(vision_router, prefix="/api/v1")
-app.include_router(sessions_router, prefix="/api/v1")
 
 
 @app.get("/health")

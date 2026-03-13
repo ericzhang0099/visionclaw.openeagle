@@ -37,7 +37,7 @@ class Session(Base):
     agent_id = Column(String(36), ForeignKey("agents.id"), nullable=False)
     user_id = Column(String(36), nullable=True)
     status = Column(Enum(SessionStatus), default=SessionStatus.ACTIVE)
-    metadata = Column(JSON, default={})
+    meta = Column(JSON, default={})
     created_at = Column(DateTime, server_default=func.now())
     ended_at = Column(DateTime, nullable=True)
     
@@ -54,7 +54,7 @@ class Message(Base):
     role = Column(Enum(MessageRole), nullable=False)
     type = Column(Enum(MessageType), default=MessageType.TEXT)
     content = Column(Text, nullable=False)
-    metadata = Column(JSON, default={})
+    meta = Column(JSON, default={})
     created_at = Column(DateTime, server_default=func.now())
     
     def __repr__(self):

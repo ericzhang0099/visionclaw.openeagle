@@ -13,8 +13,8 @@ class AppConfig {
 
   factory AppConfig.defaultConfig() {
     return AppConfig(
-      baseUrl: 'http://localhost:8000',
-      wsUrl: 'ws://localhost:8000',
+      baseUrl: 'http://172.24.171.60:8000',
+      wsUrl: 'ws://172.24.171.60:8000',
       timeout: 30000,
       debug: true,
     );
@@ -22,8 +22,8 @@ class AppConfig {
 
   factory AppConfig.fromJson(Map<String, dynamic> json) {
     return AppConfig(
-      baseUrl: json['baseUrl'] ?? 'http://localhost:8000',
-      wsUrl: json['wsUrl'] ?? 'ws://localhost:8000',
+      baseUrl: json['baseUrl'] ?? 'http://172.24.171.60:8000',
+      wsUrl: json['wsUrl'] ?? 'ws://172.24.171.60:8000',
       timeout: json['timeout'] ?? 30000,
       debug: json['debug'] ?? false,
     );

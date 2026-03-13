@@ -1,0 +1,29 @@
+name: vision_claw
+description: VisionClaw - 视觉智能体移动端
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  dio: ^5.3.3
+  web_socket_channel: ^2.4.0
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  path: ^1.8.3
+  camera: ^0.10.5+5
+  image_picker: ^1.0.4
+  permission_handler: ^11.0.1
+  provider: ^6.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
